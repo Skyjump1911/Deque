@@ -24,6 +24,34 @@
  */
 class deque {
 
+private:
+
+  
+
+  int **blockmap;
+  int size;
+  int mapSize;
+  const static int blocksize;
+  int first_block;
+  int first_element;
+
+  /**
+
+how to find the row from a user index:
+row = first_block + ((first_element + i ) / blocksize)
+that is integer division btw
+
+finding the column from index:
+
+col = (first_element + i ) % blocksize;
+
+
+   **/
+
+
+
+
+  
 
  public:
 
@@ -45,11 +73,16 @@ class deque {
 
   bool empty();
 
-  int size();
+  //  int size();
+
+  void print(deque& object);
+  
+  //not sure at all if this is how you even declare this right now
+  // int& operator[](deque& object); 
 
 
 
 
 
-
-}
+};
+#endif
