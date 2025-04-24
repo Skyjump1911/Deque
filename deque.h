@@ -30,10 +30,10 @@ private:
 
   int **blockmap;
   int size;
-  int mapSize;
-  const static int blocksize;
-  int first_block;
-  int first_element;
+  int mapsize;
+  int blocksize;
+  //  int first_block;
+  // int first_element;
 
   /**
 
@@ -75,7 +75,7 @@ col = (first_element + i ) % blocksize;
 
   //  int size();
 
-  void print(deque& object);
+  void print();
   
   //not sure at all if this is how you even declare this right now
   // int& operator[](deque& object); 

@@ -5,9 +5,11 @@ using namespace std;
 
 int main() {
 
-  deque test;
+    deque test;
 
-  test.print(test); 
-  
+  // test.print(); 
+
+    
+  cout << "tst"; 
   return 0;
 }
