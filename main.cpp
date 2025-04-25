@@ -7,14 +7,19 @@ int main() {
 
     deque test;
 
-  // test.print(); 
-
+    cout << "Pushing elements to front...\n\n";
     
-  cout << "tst";
+    for (int i = 5; i >= 1; i--) {
+      test.push_front(i);
+    }
 
-  cout << endl << endl;
+    cout << "Pushing elements to the back...\n\n";
 
-  test.push_front(5);
-  test.print();
+    for (int i = 6; i <= 10; i++) {
+      test.push_back(i);
+    }
+
+    test.print();
+    
   return 0;
 }
