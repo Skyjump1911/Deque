@@ -31,12 +31,12 @@ private:
   int **blockmap;
   int size;
   int mapsize;
-  // int blocksize;
-  // int first_block;
-  // int first_element;
-  // int last_block;
-  // int last_element
-  // deque_size;
+  int blocksize;
+  int first_block;
+  int first_element;
+  int last_block;
+  int last_element;
+  int deque_size;
 
   /**
 
