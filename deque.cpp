@@ -1,3 +1,12 @@
+/**
+ * @file deque.cpp
+ * @author Noah Melton and Sam Toney
+ * @date 2025-04-24
+ * @brief Header file for deque program.
+ * 
+ * Holds a deque class for use in the Deque Program.
+ */
+
 #include "deque.h"
 #include <iostream>
 

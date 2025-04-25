@@ -1,3 +1,12 @@
+/**
+ * @file main.cpp
+ * @author Noah Melton and Sam Toney
+ * @date 2025-04-24
+ * @brief Deque Program
+ * 
+ * A program that constructs a deque using a dynamic double array.
+ */
+
 #include "deque.h"
 #include <iostream>
 
