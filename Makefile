@@ -1,3 +1,12 @@
+#
+# @file Makefile
+# @author Noah Melton and Sam Toney
+# @date 2025-04-23
+# @brief Makefile for deque program
+#
+# Used to automate compiling and cleaning up unwanted files.
+#
+
 CXX = g++
 
 CXXFLAGS = -Wall -Wextra -g
