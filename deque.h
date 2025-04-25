@@ -37,7 +37,7 @@ private:
   int deque_size;
 
   /**
-
+//note for the math
 how to find the row from a user index:
 row = first_block + ((first_element + i ) / blocksize)
 that is integer division btw
