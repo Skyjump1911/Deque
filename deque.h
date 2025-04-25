@@ -82,7 +82,7 @@ col = (first_element + i ) % blocksize;
 
   void print();
   
-  const int& deque::operator[](int index);
+  const int& operator[](int index);
 
 
 

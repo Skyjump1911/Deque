@@ -211,7 +211,7 @@ const int& deque::operator[](int index) {
   int block_offset = global_index / BLOCK_SIZE;
   int position_offset = global_index % BLOCK_SIZE;
 
-  return blockmap[first_block + block_offset][position_offset]
+  return blockmap[first_block + block_offset][position_offset];
 }
 
 void deque::resize_map(bool resize) {
