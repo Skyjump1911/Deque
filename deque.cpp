@@ -96,7 +96,37 @@ void deque::push_front(const int& number) {
   // Store number and update deque_size
   blockmap[first_block][first_element] = number;
   deque_size++;
+}
 
+void deque::push_back(const int& number) {
+
+  // Check if we need to move to the next block
+  if (last_element == BLOCK_SIZE - 1) {
+    
+    // Check if we need to resize the map
+    if (last_block == mapsize - 1) {
+      resize_map(false);
+    }
+
+    // Move to the next block
+    last_block++;
+
+    // Allocate memory for the new block if necessary
+    if (blockmap[last_block] == NULL) {
+      blockmap[last_block] = new int[BLOCK_SIZE];
+    }
+
+    // Set position at the start of the new block
+    last_element = 0;
+    
+  } else {
+    // Move position forward
+    last_element++;
+  }
+
+  // Store number and update deque_size
+  blockmap[last_block][last_element] = number;
+  deque_size++;
 }
 
 void deque::resize_map(bool resize) {
