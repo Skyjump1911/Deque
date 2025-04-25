@@ -302,6 +302,16 @@ int deque::size() {
   return deque_size;
 }
 
+
+/**
+ * this is the overloaded operator
+ *
+ * @param int index the index which we are trying to see inside the deque
+ * @pre a populated deque is needed
+ * @return const the value at the index we are looking at
+ * @post the index is returned 
+ * 
+ */
 const int& deque::operator[](int index) {
 
   // Check if valid index was entered

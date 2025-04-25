@@ -50,12 +50,38 @@ col = (first_element + i ) % blocksize;
    **/
 
   // Helper Methods
+
+/**
+ * this is the resize function for the map
+ *
+ * @param bool resize a true or false value for the resize
+ * @pre you need a map to resize
+ * @return void no return type, it just resizes the map
+ * @post the map is resized to hold more elements
+ * 
+ */
   void resize_map(bool resize);
 
  public:
 
+
+/**
+ * this is the deque constructor
+ *
+ * @pre N/A
+ * @post a deque object is made
+ * 
+ */
   deque();
 
+
+/**
+ * the deque destructor
+ *
+ * @pre you need a deque first in order to be able to destroy it
+ * @post the deque is destroyed
+ * 
+ */
   ~deque();
 
   void push_front(const int& number);
