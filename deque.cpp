@@ -129,6 +129,33 @@ void deque::push_back(const int& number) {
   deque_size++;
 }
 
+void deque::pop_front() {
+
+  // Check is deque is empty
+  if (empty()) {
+    cout << "ERROR: deque is empty\n";
+  }
+
+  // Move first position forward 
+  first_element++;
+
+  // Check if the position is at the end of the block and move to next block if needed
+  if (first_element == BLOCK_SIZE) {
+    first_block++;
+    first_element = 0;
+  }
+
+  deque_size--;
+
+}
+
+bool deque::empty() {
+
+  // Check if deque has any elements
+  return deque_size == 0;
+
+}
+
 void deque::resize_map(bool resize) {
 
   int new_map_size = mapsize * 2;
