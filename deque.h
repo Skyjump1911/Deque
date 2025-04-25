@@ -25,11 +25,9 @@ class deque {
 private:
 
   static const int INITIAL_MAP_SIZE = 8;
-  static const int BLOCK_SIZE = 16;
-  
+  static const int BLOCK_SIZE = 16;  
 
   int **blockmap;
-  int size;
   int mapsize;
   int blocksize;
   int first_block;
@@ -54,10 +52,6 @@ col = (first_element + i ) % blocksize;
   // Helper Methods
   void resize_map(bool resize);
 
-
-
-  
-
  public:
 
   deque();
@@ -78,15 +72,11 @@ col = (first_element + i ) % blocksize;
 
   bool empty();
 
-  //  int size();
+  int size();
 
   void print();
   
   const int& operator[](int index);
-
-
-
-
-
+  
 };
 #endif

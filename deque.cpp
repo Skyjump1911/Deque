@@ -9,8 +9,7 @@ deque::deque() {
   int mapsize = 5; 
   int blocksize = 5;
   
-  int **blockmap = new int*[
-			    mapsize];
+  int **blockmap = new int*[mapsize];
   for(int i = 0; i < mapsize; i++) {
 
     blockmap[i] = new int[blocksize];
@@ -195,6 +194,10 @@ bool deque::empty() {
   // Check if deque has any elements
   return deque_size == 0;
 
+}
+
+int deque::size() {
+  return deque_size;
 }
 
 const int& deque::operator[](int index) {
