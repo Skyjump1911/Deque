@@ -72,9 +72,9 @@ col = (first_element + i ) % blocksize;
 
   void pop_back(); 
 
-  void front();
+  int& front();
 
-  void back();
+  int& back();
 
   bool empty();
 

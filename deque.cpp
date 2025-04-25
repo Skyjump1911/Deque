@@ -168,6 +168,24 @@ void deque::pop_back() {
   deque_size--;
 }
 
+int& deque::front() {
+
+  if (empty()) {
+    cout << "ERROR: deque is empty\n";
+  }
+
+  return blockmap[first_block][first_element];
+}
+
+int& deque::back() {
+
+  if (empty()) {
+    cout << "ERROR: deque is empty\n";
+  }
+
+  return blockmap[last_block][last_element];
+}
+
 bool deque::empty() {
 
   // Check if deque has any elements
