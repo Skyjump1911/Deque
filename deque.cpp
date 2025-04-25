@@ -170,19 +170,23 @@ void deque::pop_back() {
 
 int& deque::front() {
 
+  // Check if deque is empty
   if (empty()) {
     cout << "ERROR: deque is empty\n";
   }
 
+  // Return first element
   return blockmap[first_block][first_element];
 }
 
 int& deque::back() {
 
+  // Check if deque is empty
   if (empty()) {
     cout << "ERROR: deque is empty\n";
   }
 
+  // Return last element
   return blockmap[last_block][last_element];
 }
 
@@ -191,6 +195,23 @@ bool deque::empty() {
   // Check if deque has any elements
   return deque_size == 0;
 
+}
+
+const int& deque::operator[](int index) {
+
+  // Check if valid index was entered
+  if (index < 0 || index >= deque_size) {
+    cout << "ERROR: invalid index\n";
+  }
+
+  // Calculate the overall index for the element
+  int global_index = first_block + index;
+
+  // Find block and position in the block 
+  int block_offset = global_index / BLOCK_SIZE;
+  int position_offset = global_index % BLOCK_SIZE;
+
+  return blockmap[first_block + block_offset][position_offset]
 }
 
 void deque::resize_map(bool resize) {
