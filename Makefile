@@ -11,4 +11,4 @@ main.o: main.cpp deque.h
 deque.o: deque.cpp deque.h
 	$(CXX) $(CXXFLAGS) -c deque.cpp
 clean:
-	rm -f *.o~ program
+	rm -f *.o *~ program

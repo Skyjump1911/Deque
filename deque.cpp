@@ -67,11 +67,41 @@ deque::~deque() {
 
 }
 
-void deque::push_front(const int& number) {}
+void deque::push_front(const int& number) {
+
+  // Check if we need to move to the previous block
+  if (first_element == 0) {
+    
+    // Check if we need to resize the map
+    if (first_block == 0) {
+      resize_map(true);
+    }
+
+    // Move to previous block
+    first_block--;
+
+    // Allocate memory for the new block if necessary
+    if (blockmap[first_block] == NULL) {
+      blockmap[first_block] = new int [BLOCK_SIZE];
+    }
+
+    // Move to the end of the new block
+    first_element = BLOCK_SIZE - 1;
+
+  } else {
+    // Move position back
+    first_element--;
+  }
+
+  // Store number and update deque_size
+  blockmap[first_block][first_element] = number;
+  deque_size++;
+
+}
 
 void deque::resize_map(bool resize) {
 
-  int new_map_size = map_size * 2;
+  int new_map_size = mapsize * 2;
   int** new_blockmap = new int*[new_map_size];
 
   // Set everything to NULL
@@ -82,9 +112,9 @@ void deque::resize_map(bool resize) {
   // Calculate position of new first block
   int new_first_block = 0;
   if (resize) {
-    new_first_block = (new_map_size - map_size) / 2 + first_block;
+    new_first_block = (new_map_size - mapsize) / 2 + first_block;
   } else {
-    new_first_block = (new_map_size - map_size) + first_block;
+    new_first_block = (new_map_size - mapsize) + first_block;
   }
   
   // Copy data to the new map
@@ -99,6 +129,6 @@ void deque::resize_map(bool resize) {
   // Update map and block info
   delete[] blockmap;
   blockmap = new_blockmap;
-  map_size = new_map_size;
+  mapsize = new_map_size;
   
 }

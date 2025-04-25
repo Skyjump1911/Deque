@@ -10,6 +10,10 @@ int main() {
   // test.print(); 
 
     
-  cout << "tst"; 
+  cout << "tst";
+
+  cout << endl << endl;
+
+  // test.push_front(5);
   return 0;
 }
