@@ -1,6 +1,6 @@
 /**
  * @file deque.h
- * @author Noah Melton
+ * @author Noah Melton and Sam Toney
  * @date 2025-04-22
  * @brief this is the header file for the deque class
  * 
@@ -82,8 +82,7 @@ col = (first_element + i ) % blocksize;
 
   void print();
   
-  //not sure at all if this is how you even declare this right now
-  // int& operator[](deque& object); 
+  const int& deque::operator[](int index);
 
 
 
