@@ -14,6 +14,7 @@ int main() {
 
   cout << endl << endl;
 
-  // test.push_front(5);
+  test.push_front(5);
+  test.print();
   return 0;
 }
