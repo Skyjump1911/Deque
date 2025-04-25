@@ -5,65 +5,52 @@ using namespace std;
 
 
 deque::deque() {
+  mapsize = INITIAL_MAP_SIZE;
+  blockmap = new int*[mapsize];
 
-  int mapsize = 5; 
-  int blocksize = 5;
-  
-  int **blockmap = new int*[mapsize];
-  for(int i = 0; i < mapsize; i++) {
-
-    blockmap[i] = new int[blocksize];
-    
+  // Initialize blocks to NULL
+  for (int i = 0; i < mapsize; i++) {
+    blockmap[i] = NULL;
   }
 
-  for(int i = 0; i < mapsize; i++) {
-    for(int j = 0; j < blocksize; j++){
+  // Start centered in the blockmap
+  first_block = mapsize / 2;
+  last_block = first_block;
 
-      blockmap[i][j] = 1;
-      
-    }
-  }
-  
-  // int first_block = 0;
-  // int first_element = 0; 
+  // Make starting positions the middle of the block
+  first_element = BLOCK_SIZE / 2;
+  last_element = first_element - 1;
 
+  // Initialize deque_size
+  deque_size = 0;
 
-
-
-
+  // Allocate memory for the first block
+  blockmap[first_block] = new int[BLOCK_SIZE];
 }
 
 
 void deque::print() {
 
-  for(int i = 0; i < mapsize; i++) {
+  if (!empty()) {
+    cout << "Deque Data:\n\n";
 
-    for(int j = 0; j < blocksize; j++) {
-
-
-      cout << blockmap[i][j] << " ";
+    for (int i = 0; i < deque_size; i++) {
+      cout << (*this)[i] << " ";
     }
 
-    cout << endl; 
-
+    cout << endl;
   }
-
 
 }
 
 deque::~deque() {
 
-
-  for(int i = 0; i < mapsize; i++) {
-
-    delete [] blockmap[i]; 
-
-
+  for (int i = 0; i < mapsize; i++) {
+    if (blockmap[i] != NULL) {
+      delete[] blockmap[i];
+    }
   }
-
-  delete [] blockmap; 
-
-
+  
 }
 
 void deque::push_front(const int& number) {
