@@ -149,6 +149,25 @@ void deque::pop_front() {
 
 }
 
+void deque::pop_back() {
+
+  // Check if deque is empty
+  if (empty()) {
+    cout << "ERROR: deque is empty\n";
+  }
+
+  // Move last position backward
+  last_element--;
+
+  // Check if the position is at the front of the block and move to the previous block if needed
+  if (last_element < 0) {
+    last_block--;
+    last_element = BLOCK_SIZE - 1;
+  }
+
+  deque_size--;
+}
+
 bool deque::empty() {
 
   // Check if deque has any elements
