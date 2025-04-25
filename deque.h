@@ -13,8 +13,6 @@
 #include <iostream>
 #include <string>
 
-
-
 /**
  * the deque class
  *
@@ -26,14 +24,19 @@ class deque {
 
 private:
 
+  static const int INITIAL_MAP_SIZE = 8;
+  static const int BLOCK_SIZE = 16;
   
 
   int **blockmap;
   int size;
   int mapsize;
-  int blocksize;
-  //  int first_block;
+  // int blocksize;
+  // int first_block;
   // int first_element;
+  // int last_block;
+  // int last_element
+  // deque_size;
 
   /**
 
@@ -48,6 +51,8 @@ col = (first_element + i ) % blocksize;
 
    **/
 
+  // Helper Methods
+  void resize_map(bool resize);
 
 
 
@@ -59,9 +64,9 @@ col = (first_element + i ) % blocksize;
 
   ~deque();
 
-  void push_front(int number);
+  void push_front(const int& number);
   
-  void push_back(int number);
+  void push_back(const int& number);
 
   void pop_front();
 

@@ -66,3 +66,39 @@ deque::~deque() {
 
 
 }
+
+void deque::push_front(const int& number) {}
+
+void deque::resize_map(bool resize) {
+
+  int new_map_size = map_size * 2;
+  int** new_blockmap = new int*[new_map_size];
+
+  // Set everything to NULL
+  for (int i = 0; i < new_map_size; i++) {
+    new_blockmap[i] = NULL;
+  }
+
+  // Calculate position of new first block
+  int new_first_block = 0;
+  if (resize) {
+    new_first_block = (new_map_size - map_size) / 2 + first_block;
+  } else {
+    new_first_block = (new_map_size - map_size) + first_block;
+  }
+  
+  // Copy data to the new map
+  for (int i = first_block; i <= last_block; i++) {
+    new_blockmap[new_first_block + (i - first_block)] = blockmap[i];
+  }
+  
+  // Update blocks
+  last_block = new_first_block + (last_block - first_block);
+  first_block = new_first_block;
+  
+  // Update map and block info
+  delete[] blockmap;
+  blockmap = new_blockmap;
+  map_size = new_map_size;
+  
+}
